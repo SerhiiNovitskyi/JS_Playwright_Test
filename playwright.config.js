@@ -1,5 +1,9 @@
+import path from 'path';
+
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+
+export const STORAGE_STATE = path.join(__dirname, 'some_data/auth/user.json');
 
 /**
  * Read environment variables from file.
@@ -27,6 +31,20 @@ module.exports = defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
+    viewport: { width: 1280, height: 720 },
+
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    baseURL: process.env.ENV_URL,
+
+    locale: 'en-GB',
+    // Emulates the user timezone. https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html
+    timezoneId: 'Europe/London',
+    geolocation: { longitude: 51.303551, latitude: 0.751312 },
+    
+    // Grants specified permissions to the browser context.
+    permissions: ['notifications','geolocation'],
+    // Emulates the user locale. https://playwright.dev/docs/emulation#offline
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -34,8 +52,19 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'log_in',
+      testMatch: '**/*.setup.js'
+    },
+    {
+      name: 'homework_playwright',
+      use: { headless: true },
+    },
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['log_in'],
+      use: { ...devices['Desktop Chrome'],
+      storageState: STORAGE_STATE,
+     },
     },
 
     {
