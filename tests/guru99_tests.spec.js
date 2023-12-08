@@ -160,8 +160,8 @@ test('test Localization', async ({ page }) => {
         await page.locator('input.gsc-input').fill('Tutorial')
       }
       await page.mouse.move(10, 10);
-      await page.locator('div.g-content').screenshot({path: 'screenshots/header-with-search-screenshot.png'})
       await expect(page).toHaveScreenshot('main-page-screenshot.png')
+      await page.locator('div.g-content').screenshot({path: 'screenshots/header-with-search-screenshot.png'})
       await expect(searchInput).toBeVisible()
       await page.waitForSelector('.gsc-input-box', { state: 'visible', timeout: 30000 })
       await searchInput.fill('sap')
