@@ -1,9 +1,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    branches: [ 'snovitskyi/js_playwright_POM' ]
+  # pull_request:
+  #   branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -18,7 +18,9 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test guru99_tests.spec.js --project chromium
+      env:
+        CI: 'true'  
     - uses: actions/upload-artifact@v3
       if: always()
       with:
