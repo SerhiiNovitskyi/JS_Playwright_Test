@@ -3,7 +3,7 @@ import path from 'path';
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
-export const STORAGE_STATE = path.join(__dirname, 'some_data/auth/user.json');
+// export const STORAGE_STATE = path.join(__dirname, 'some_data/auth/user.json');
 
 /**
  * Read environment variables from file.
@@ -62,9 +62,9 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       dependencies: ['log_in'],
-      use: { ...devices['Desktop Chrome'],
-      storageState: STORAGE_STATE,
-     },
+      // use: { ...devices['Desktop Chrome'],
+      // storageState: STORAGE_STATE,
+    //  },
     },
 
     {

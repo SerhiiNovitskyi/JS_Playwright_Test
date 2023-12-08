@@ -1,7 +1,7 @@
-name: Playwright Tests
+name: Main Tests
 on:
   push:
-    branches: [ 'snovitskyi/js_playwright_POM' ]
+    branches: [ 'snovitskyi/js_playwriight_POM' ]
   # pull_request:
   #   branches: [ main, master ]
 jobs:
@@ -15,7 +15,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test guru99_tests.spec.js --project chromium
+      run: ENV_URL=https://www.guru99.com npx playwright test guru99_tests.spec.js --project chromium
     - uses: actions/upload-artifact@v3
       if: always()
       with:
