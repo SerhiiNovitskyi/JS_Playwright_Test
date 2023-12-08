@@ -1,7 +1,7 @@
 name: Main Tests
 on:
   push:
-    branches: [ 'snovitskyi/js_playwright_POM' ]
+    branches: [ 'snovitskyi/js_playwriight_POM' ]
   # pull_request:
   #   branches: [ main, master ]
 jobs:
