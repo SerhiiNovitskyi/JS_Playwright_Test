@@ -2,7 +2,7 @@
 import {test as setup, expect} from '@playwright/test'
 import {STORAGE_STATE} from '../playwright.config'
 
-setup.skip('make login', async({ page}) =>{
+setup('make login', async({ page}) =>{
     await page.goto('/login')
     await page.getByLabel('Email:').fill('email@dmytro.com')
     await page.getByLabel('Пароль').fill('abc123')
