@@ -2,6 +2,9 @@ import { test, expect, request } from '@playwright/test';
 import { MainPageNewborn } from './pages/mainPageNewBorn'
 // import { ApiHelper } from '../helpers/apiHelper'
 
+// ENV_URL=http://5.189.186.217 npx playwright test newborn.spec.js --headed --project chromium --workers 2 --trace on
+// npm newman run AQA\ 10.postman_collection.json --enviroment ENV\ AQA10.postman_enviroment.json
+
 test.describe('Verification steps for newborn website', () => {
     const USER = {
         email: "email@dmytro.com",
