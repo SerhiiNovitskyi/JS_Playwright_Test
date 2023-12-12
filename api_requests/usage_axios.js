@@ -32,7 +32,7 @@ describe('Actions for users on dummyjson website', async() => {
         userId = createUserData.data.id
     })
 
-    it.skip('Create Product', async() =>{
+    it('Create Product', async() =>{
         const createProduct = await axios.post(`${data.baseUrl}/products/add`,
         {
             'title': 'BMW3 Pencil',
