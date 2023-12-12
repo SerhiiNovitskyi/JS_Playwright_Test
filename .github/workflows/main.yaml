@@ -1,9 +1,9 @@
 name: Newborn Tests
 on:
-  push:
-    branches: [ 'snovitskyi/js_playwriight_POM' ]
-  # pull_request:
-  #   branches: [ main, master ]
+  # push:
+  #   branches: [ 'snovitskyi/js_playwriight_POM' ]
+  pull_request:
+    branches: [ main, master ]
 jobs:
   test:
     runs-on: ubuntu-latest
