@@ -1,8 +1,8 @@
 name: Newborn Tests
 on:
-  # push:
+  push:
   #   branches: [ 'snovitskyi/js_playwriight_POM' ]
-  pull_request:
+  # pull_request:
     branches: [ main, master ]
 jobs:
   test:
