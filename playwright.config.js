@@ -1,9 +1,13 @@
-import path from 'path';
-
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
 
-export const STORAGE_STATE = path.join(__dirname, 'some_data/auth/user.json');
+import { defineConfig, devices } from '@playwright/test';
+import { configDotenv } from 'dotenv';
+import path from 'path';
+export const STORAGE_STATE = path.join(__dirname, '@playwright/.auth/user.json')
+
+configDotenv({
+  path: './env/.env.local'
+})
 
 /**
  * Read environment variables from file.

@@ -1,9 +1,9 @@
-name: Playwright Tests
+name: Newborn Tests
 on:
   push:
-    branches: [ 'snovitskyi/js_playwright_POM' ]
+  #   branches: [ 'snovitskyi/js_playwriight_POM' ]
   # pull_request:
-  #   branches: [ main, master ]
+    branches: [ main, master ]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test guru99_tests.spec.js --project chromium
+      run: ENV_URL=http://5.189.186.217 npx playwright test newborn.spec.js --project chromium
     - uses: actions/upload-artifact@v3
       if: always()
       with:
