@@ -1,8 +1,9 @@
 name: CI API Test
 on:
-  push:
-#   #   branches: [ 'snovitskyi/js_playwriight_POM' ]
-#   pull_request:
+  # push:
+    #   branches: [ 'snovitskyi/js_playwriight_POM' ]
+  pull_request:
+    types: ['opened']
     branches: [ 'snovitskyi/rest' ]
 jobs:
   test:
